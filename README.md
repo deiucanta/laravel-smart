@@ -1,5 +1,7 @@
 # Laravel Smart
 
+![Laravel Smart Demo](https://i.imgur.com/MTFSm9b.gif)
+
 **Do not use this package in production!**
 
 1. This is a proof of concept.
