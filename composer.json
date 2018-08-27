@@ -1,0 +1,26 @@
+{
+  "name": "deiucanta/smart",
+  "description": "Laravel Smart",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Andrei Canta",
+      "email": "deiucanta@gmail.com"
+    }
+  ],
+  "require": {
+    "illuminate/support": "^5.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "Deiucanta\\Smart\\": "src"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Deiucanta\\Smart\\SmartServiceProvider"
+      ]
+    }
+  }
+}
