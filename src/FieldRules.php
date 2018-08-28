@@ -289,19 +289,4 @@ trait FieldRules
     // unique is in Field
 
     // url is in FieldTypes
-
-    protected function makeUniqueRule($model)
-    {
-        $rule = Rule::unique($model->getTable(), $this->name);
-
-        if ($model->getKey()) {
-            $rule->ignore($model->getKey(), $model->getKeyName());
-        }
-
-        if ($this->uniqueClosure instanceof Closure) {
-            $rule->where($this->uniqueClosure);
-        }
-
-        return $rule;
-    }
 }
