@@ -159,6 +159,10 @@ class Field
     {
         $output = [];
 
+        if ($this->type === null) {
+            throw new Exception("Field `{$this->name}` doesn't have a type.");
+        }
+
         $output['type'] = $this->type;
         $output['typeArgs'] = $this->typeArgs;
 
