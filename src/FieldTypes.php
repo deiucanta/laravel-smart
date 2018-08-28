@@ -6,7 +6,7 @@ trait FieldTypes
 {
     public function bigIncrements()
     {
-        return $this->type('bigIncrements')->cast('integer')->rule('numeric');
+        return $this->type('bigIncrements')->cast('integer');
     }
 
     public function bigInteger()
@@ -76,7 +76,7 @@ trait FieldTypes
 
     public function increments()
     {
-        return $this->type('increments')->cast('integer')->rule('numeric');
+        return $this->type('increments')->cast('integer');
     }
 
     public function integer()
@@ -116,7 +116,7 @@ trait FieldTypes
 
     public function mediumIncrements()
     {
-        return $this->type('mediumIncrements')->cast('integer')->rule('numeric');
+        return $this->type('mediumIncrements')->cast('integer');
     }
 
     public function mediumInteger()
@@ -161,7 +161,7 @@ trait FieldTypes
 
     public function smallIncrements()
     {
-        return $this->type('smallIncrements')->cast('integer')->rule('numeric');
+        return $this->type('smallIncrements')->cast('integer');
     }
 
     public function smallInteger()
@@ -221,7 +221,7 @@ trait FieldTypes
 
     public function tinyIncrements()
     {
-        return $this->type('tinyIncrements')->cast('integer')->rule('numeric');
+        return $this->type('tinyIncrements')->cast('integer');
     }
 
     public function tinyInteger()

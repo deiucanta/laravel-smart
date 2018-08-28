@@ -121,7 +121,7 @@ These are Laravel types that are currently supported.
 
 | Method | Type | Cast | Rule |
 | - | - | - | - |
-| `bigIncrements()` | `bigIncrements` | `integer` | `numeric` |
+| `bigIncrements()` | `bigIncrements` | `integer` | - |
 | `bigInteger()` | `bigInteger` | `integer` | `numeric` |
 | `binary()` | `binary` | - | - |
 | `boolean()` | `boolean` | `boolean` | `boolean` |
@@ -135,7 +135,7 @@ These are Laravel types that are currently supported.
 | `float($total, $decimal)` | `float` | `float` | `numeric` |
 | `geometry()` | `geometry` | - | - |
 | `geometryCollection()` | `geometryCollection` | - | - |
-| `increments()` | `increments` | `integer` | `numeric` |
+| `increments()` | `increments` | `integer` | - |
 | `integer()` | `integer` | `integer` | `numeric` |
 | `ipAddress()` | `ipAddress` | - | `ip` |
 | `json()` | `json` | `array` | `array` |
@@ -143,7 +143,7 @@ These are Laravel types that are currently supported.
 | `lineString()` | `lineString` | - | - |
 | `longText()` | `longText` | - | - |
 | `macAddress()` | `macAddress` | - | - |
-| `mediumIncrements()` | `mediumIncrements` | `integer` | `numeric` |
+| `mediumIncrements()` | `mediumIncrements` | `integer` | - |
 | `mediumInteger()` | `mediumInteger` | `integer` | `numeric` |
 | `mediumText()` | `mediumText` | - | - |
 | `multiLineString()` | `multiLineString` | - | - |
@@ -151,7 +151,7 @@ These are Laravel types that are currently supported.
 | `multiPolygon()` | `multiPolygon` | - | - |
 | `point()` | `point` | - | - |
 | `polygon()` | `polygon` | - | - |
-| `smallIncrements()` | `smallIncrements` | `integer` | `numeric` |
+| `smallIncrements()` | `smallIncrements` | `integer` | - |
 | `smallInteger()` | `smallInteger` | `integer` | `numeric` |
 | `softDeletes()` | `softDeletes` | `datetime` | - |
 | `softDeletesTz()` | `softDeletesTz` | `datetime` | - |
@@ -161,7 +161,7 @@ These are Laravel types that are currently supported.
 | `timeTz()` | `timeTz` | - | - |
 | `timestamp()` | `timestamp` |  `datetime` | - |
 | `timestampTz()` | `timestampTz` | `datetime` | - |
-| `tinyIncrements()` | `tinyIncrements` | `integer` | `numeric` |
+| `tinyIncrements()` | `tinyIncrements` | `integer` | - |
 | `tinyInteger()` | `tinyInteger` | `integer` | `numeric` |
 | `unsignedBigInteger()` | `unsignedBigInteger` | `integer` | `numeric` |
 | `unsignedDecimal($total, $decimal)` | `unsignedDecimal` | `double` | `numeric` |
