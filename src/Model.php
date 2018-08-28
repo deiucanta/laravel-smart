@@ -30,8 +30,7 @@ class Model extends Eloquent
             $validator = $model->validate();
 
             if ($validator->fails()) {
-                $response = Response::json($validator->errors());
-                throw new ValidationException($validator, $response);
+                throw new ValidationException($validator);
             }
         });
 
@@ -49,6 +48,10 @@ class Model extends Eloquent
 
             if ($field->fillable === true) {
                 $this->fillable[] = $field->name;
+            }
+
+            if ($field->guarded === true) {
+                $this->guarded[] = $field->name;
             }
 
             if ($field->cast !== null) {
