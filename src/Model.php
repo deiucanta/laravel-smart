@@ -24,16 +24,15 @@ class Model extends Eloquent
     {
         parent::boot();
 
-        static::saving(function($model) {
+        static::saving(function ($model) {
             $validator = $model->validate();
 
             if ($validator->fails()) {
-                $response = Response::json($validator->errors());
-                throw new ValidationException($validator, $response);
+                throw new ValidationException($validator);
             }
         });
 
-        static::saved(function($model) {
+        static::saved(function ($model) {
             $model->resetValidator();
         });
     }
