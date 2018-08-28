@@ -24,7 +24,7 @@ class Model extends Eloquent
     {
         parent::boot();
 
-        static::saving(function($model) {
+        static::saving(function ($model) {
             $validator = $model->validate();
 
             if ($validator->fails()) {
@@ -33,7 +33,7 @@ class Model extends Eloquent
             }
         });
 
-        static::saved(function($model) {
+        static::saved(function ($model) {
             $model->resetValidator();
         });
     }
@@ -47,6 +47,10 @@ class Model extends Eloquent
 
             if ($field->fillable === true) {
                 $this->fillable[] = $field->name;
+            }
+
+            if ($field->guarded === true) {
+                $this->guarded[] = $field->name;
             }
 
             if ($field->cast !== null) {
