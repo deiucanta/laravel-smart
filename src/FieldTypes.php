@@ -56,7 +56,7 @@ trait FieldTypes
 
     public function enum($values)
     {
-        return $this->type('enum', $values)->rule('in:' . implode(',', $values));
+        return $this->type('enum', $values)->rule('in:'.implode(',', $values));
     }
 
     public function float($total, $decimal)

@@ -2,7 +2,7 @@
 
 namespace Deiucanta\Smart;
 
-use Illuminate\Support\Facades\Response;
+use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Database\Eloquent\Model as Eloquent;
@@ -81,13 +81,19 @@ class Model extends Eloquent
         $values = $rules = [];
 
         foreach ($this->smartFields as $key => $field) {
-            if (in_array($key, $skip)) continue;
+            if (in_array($key, $skip)) {
+                continue;
+            }
 
-            if ($field->validateRawValue && !isset($this->rawAttributes[$key])) continue;
+            if ($field->validateRawValue && !isset($this->rawAttributes[$key])) {
+                continue;
+            }
 
             $fieldRules = $field->getValidationRules($this);
 
-            if (count($fieldRules) === 0) continue;
+            if (count($fieldRules) === 0) {
+                continue;
+            }
 
             $rules[$key] = $fieldRules;
             $values[$key] = isset($this->rawAttributes[$key])
@@ -127,9 +133,9 @@ class Model extends Eloquent
     public function dump()
     {
         return [
-            'casts' => $this->casts,
+            'casts'     => $this->casts,
             'validator' => $this->getValidatorData(),
-            'fields' => $this->smartFields,
+            'fields'    => $this->smartFields,
         ];
     }
 }

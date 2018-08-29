@@ -7,29 +7,29 @@ class ModelGenerator extends Generator
     public function print($name)
     {
         return $this->joinTree([
-            "<?php",
-            "",
-            "namespace App;",
-            "",
+            '<?php',
+            '',
+            'namespace App;',
+            '',
             "use Deiucanta\Smart\Field;",
             "use Deiucanta\Smart\Model;",
-            "",
+            '',
             "class {$name} extends Model",
-            "{",
+            '{',
             [
-                "public function fields()",
-                "{",
+                'public function fields()',
+                '{',
                 [
-                    "return [",
+                    'return [',
                     [
                         "Field::make('id')->increments(),",
                     ],
-                    "];",
+                    '];',
                 ],
-                "}",
+                '}',
             ],
-            "}",
-            "",
+            '}',
+            '',
         ]);
     }
 }
