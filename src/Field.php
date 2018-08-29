@@ -166,14 +166,26 @@ class Field
         $output['type'] = $this->type;
         $output['typeArgs'] = $this->typeArgs;
 
-        if ($this->index) $output['index'] = $this->index;
-        if ($this->unique) $output['unique'] = $this->unique;
-        if ($this->primary) $output['primary'] = $this->primary;
+        if ($this->index) {
+            $output['index'] = $this->index;
+        }
+        if ($this->unique) {
+            $output['unique'] = $this->unique;
+        }
+        if ($this->primary) {
+            $output['primary'] = $this->primary;
+        }
 
-        if ($this->default) $output['default'] = $this->default;
+        if ($this->default) {
+            $output['default'] = $this->default;
+        }
 
-        if ($this->nullable) $output['nullable'] = $this->nullable;
-        if ($this->unsigned) $output['unsigned'] = $this->unsigned;
+        if ($this->nullable) {
+            $output['nullable'] = $this->nullable;
+        }
+        if ($this->unsigned) {
+            $output['unsigned'] = $this->unsigned;
+        }
 
         return $output;
     }

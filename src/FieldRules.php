@@ -113,7 +113,7 @@ trait FieldRules
     public function exists($table, $column = null, $where = null)
     {
         if (strpos($table, '\\') !== false) {
-            $instance = new $table;
+            $instance = new $table();
             $table = $instance->getTable();
         }
 
@@ -123,7 +123,9 @@ trait FieldRules
 
         $rule = Rule::exists($table, $column);
 
-        if ($where) $rule->where($where);
+        if ($where) {
+            $rule->where($where);
+        }
 
         return $this->rule($rule);
     }
@@ -256,22 +258,22 @@ trait FieldRules
 
     public function requiredWith($fields)
     {
-        return $this->rule('required_with:' . implode(',', $fields));
+        return $this->rule('required_with:'.implode(',', $fields));
     }
 
     public function requiredWithAll($fields)
     {
-        return $this->rule('required_with_all:' . implode(',', $fields));
+        return $this->rule('required_with_all:'.implode(',', $fields));
     }
 
     public function requiredWithout($fields)
     {
-        return $this->rule('required_without:' . implode(',', $fields));
+        return $this->rule('required_without:'.implode(',', $fields));
     }
 
     public function requiredWithoutAll($fields)
     {
-        return $this->rule('required_without_all:' . implode(',', $fields));
+        return $this->rule('required_without_all:'.implode(',', $fields));
     }
 
     public function same($field)

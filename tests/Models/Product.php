@@ -7,9 +7,9 @@ use Deiucanta\Smart\Model;
 
 class Product extends Model
 {
-  public function fields()
-  {
-    return [
+    public function fields()
+    {
+        return [
       Field::make('id')->increments(),
       Field::make('sku')->string()->required()->unique()->guarded(),
       Field::make('name')->string()->required()->guarded(),
@@ -20,5 +20,5 @@ class Product extends Model
       Field::make('created_at')->timestamp()->nullable()->index(),
       Field::make('updated_at')->timestamp()->nullable()->index(),
     ];
-  }
+    }
 }

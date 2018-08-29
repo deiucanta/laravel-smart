@@ -21,15 +21,14 @@ class MigrationCommand extends Command
         $newData = $this->getNewData();
         $oldData = $this->getOldData();
 
-
         $up = $this->analyzer->diff($oldData, $newData);
         $down = $this->analyzer->diff($newData, $oldData);
 
         if ($up && $down) {
             $time = time();
             File::put(
-                database_path('migrations/' . date('Y_m_d_His') . '_smart_migration_' . $time .'.php'),
-                $this->generator->print($up, $down, 'SmartMigration' . $time)
+                database_path('migrations/'.date('Y_m_d_His').'_smart_migration_'.$time.'.php'),
+                $this->generator->print($up, $down, 'SmartMigration'.$time)
             );
             $this->saveData($newData);
         } else {
@@ -50,6 +49,7 @@ class MigrationCommand extends Command
 
         if (File::exists($path)) {
             $content = File::get($path);
+
             return json_decode($content, true);
         }
 

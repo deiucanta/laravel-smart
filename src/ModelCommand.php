@@ -18,7 +18,7 @@ class ModelCommand extends Command
         $name = $this->argument('name');
 
         File::put(
-            app_path($name . '.php'),
+            app_path($name.'.php'),
             $this->generator->print($name)
         );
     }

@@ -11,7 +11,7 @@ class MigrationAnalyzer
         foreach ($models as $model) {
             $data[$model] = [];
 
-            $instance = new $model;
+            $instance = new $model();
             $fields = $instance->fields();
 
             foreach ($fields as $field) {
@@ -32,7 +32,9 @@ class MigrationAnalyzer
                 $created[$model] = $this->modelDiff([], $fields);
             } else {
                 $diff = $this->modelDiff($oldData[$model], $newData[$model]);
-                if ($diff) $updated[$model] = $diff;
+                if ($diff) {
+                    $updated[$model] = $diff;
+                }
             }
         }
 
@@ -46,9 +48,15 @@ class MigrationAnalyzer
 
         $result = [];
 
-        if (count($created)) $result['created'] = $created;
-        if (count($updated)) $result['updated'] = $updated;
-        if (count($deleted)) $result['deleted'] = $deleted;
+        if (count($created)) {
+            $result['created'] = $created;
+        }
+        if (count($updated)) {
+            $result['updated'] = $updated;
+        }
+        if (count($deleted)) {
+            $result['deleted'] = $deleted;
+        }
 
         return count($result) ? $result : null;
     }
@@ -62,7 +70,9 @@ class MigrationAnalyzer
                 $created[$name] = $field;
             } else {
                 $diff = $this->fieldDiff($oldFields[$name], $field);
-                if ($diff) $updated[$name] = $diff;
+                if ($diff) {
+                    $updated[$name] = $diff;
+                }
             }
         }
 
@@ -76,9 +86,15 @@ class MigrationAnalyzer
 
         $result = [];
 
-        if (count($created)) $result['created'] = $created;
-        if (count($updated)) $result['updated'] = $updated;
-        if (count($deleted)) $result['deleted'] = $deleted;
+        if (count($created)) {
+            $result['created'] = $created;
+        }
+        if (count($updated)) {
+            $result['updated'] = $updated;
+        }
+        if (count($deleted)) {
+            $result['deleted'] = $deleted;
+        }
 
         return count($result) ? $result : null;
     }
@@ -88,25 +104,49 @@ class MigrationAnalyzer
         ksort($oldField);
         ksort($newField);
 
-        if ($oldField === $newField) return null;
+        if ($oldField === $newField) {
+            return;
+        }
 
         $output = [];
 
-        if (isset($newField['type'])) $output['type'] = $newField['type'];
-        if (isset($newField['typeArgs'])) $output['typeArgs'] = $newField['typeArgs'];
+        if (isset($newField['type'])) {
+            $output['type'] = $newField['type'];
+        }
+        if (isset($newField['typeArgs'])) {
+            $output['typeArgs'] = $newField['typeArgs'];
+        }
 
-        if (isset($newField['default'])) $output['default'] = $newField['default'];
-        if (isset($newField['nullable'])) $output['nullable'] = $newField['nullable'];
-        if (isset($newField['unsigned'])) $output['unsigned'] = $newField['unsigned'];
+        if (isset($newField['default'])) {
+            $output['default'] = $newField['default'];
+        }
+        if (isset($newField['nullable'])) {
+            $output['nullable'] = $newField['nullable'];
+        }
+        if (isset($newField['unsigned'])) {
+            $output['unsigned'] = $newField['unsigned'];
+        }
 
-        if (isset($newField['index']) && !isset($oldField['index'])) $output['index'] = true;
-        if (!isset($newField['index']) && isset($oldField['index'])) $output['index'] = false;
+        if (isset($newField['index']) && !isset($oldField['index'])) {
+            $output['index'] = true;
+        }
+        if (!isset($newField['index']) && isset($oldField['index'])) {
+            $output['index'] = false;
+        }
 
-        if (isset($newField['unique']) && !isset($oldField['unique'])) $output['unique'] = true;
-        if (!isset($newField['unique']) && isset($oldField['unique'])) $output['unique'] = false;
+        if (isset($newField['unique']) && !isset($oldField['unique'])) {
+            $output['unique'] = true;
+        }
+        if (!isset($newField['unique']) && isset($oldField['unique'])) {
+            $output['unique'] = false;
+        }
 
-        if (isset($newField['primary']) && !isset($oldField['primary'])) $output['primary'] = true;
-        if (!isset($newField['primary']) && isset($oldField['primary'])) $output['primary'] = false;
+        if (isset($newField['primary']) && !isset($oldField['primary'])) {
+            $output['primary'] = true;
+        }
+        if (!isset($newField['primary']) && isset($oldField['primary'])) {
+            $output['primary'] = false;
+        }
 
         return $output;
     }
