@@ -12,7 +12,7 @@ class Generator
             if (is_array($item)) {
                 $output .= $this->joinTree($item, $level + 1);
             } else {
-                $output .= str_repeat(' ', $level * $indent) . $item . "\n";
+                $output .= str_repeat(' ', $level * $indent).$item."\n";
             }
         }
 
@@ -30,7 +30,9 @@ class Generator
 
         for ($i = 0; $i < count($sections); $i++) {
             $output = array_merge($output, $sections[$i]);
-            if ($i < count($sections) - 1) $output[] = "";
+            if ($i < count($sections) - 1) {
+                $output[] = '';
+            }
         }
 
         return $output;
