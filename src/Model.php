@@ -3,9 +3,10 @@
 namespace Deiucanta\Smart;
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
-use Illuminate\Support\Facades\Schema;
+
 
 class Model extends Eloquent
 {
