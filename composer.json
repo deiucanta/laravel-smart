@@ -8,6 +8,7 @@
       "email": "deiucanta@gmail.com"
     }
   ],
+  "minimum-stability": "dev",
   "require": {
     "illuminate/support": "^5.6",
     "doctrine/dbal": "^2.8",
@@ -19,11 +20,23 @@
       "Deiucanta\\Smart\\": "src"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "Deiucanta\\Smart\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit --colors=always"
+  },
   "extra": {
     "laravel": {
       "providers": [
         "Deiucanta\\Smart\\SmartServiceProvider"
       ]
     }
+  },
+  "require-dev": {
+    "orchestra/testbench": "^3.8@dev",
+    "phpunit/phpunit": "^7.4@dev"
   }
 }
