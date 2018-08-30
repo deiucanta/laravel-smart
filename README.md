@@ -4,8 +4,8 @@
 
 **Do not use this package in production!**
 
-1. This is a proof of concept.
-2. The code is not unit tested.
+1. This is a proof of concept. (update: this package is used succesfully in an app that has 25 models)
+2. The code is not unit tested. (update: thanks to @robsontenorio we have basic unit testing)
 3. The API is not stable.
 
 I release this alpha version to get feedback on the API and to make sure I'm not missing important use cases.
