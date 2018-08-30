@@ -4,7 +4,6 @@ namespace Deiucanta\Smart\Tests;
 
 use Deiucanta\Smart\Tests\Models\OhRule;
 
-
 class FieldRulesTest extends TestCase
 {
     protected function setUp()
@@ -164,7 +163,6 @@ class FieldRulesTest extends TestCase
         $field = collect($model->fields())->firstWhere('name', 'digitsBetween_field');
         $this->assertEquals($field->rules, ['digits_between:5,9']);
     }
-
 
     /** @test */
     public function setup_exists()

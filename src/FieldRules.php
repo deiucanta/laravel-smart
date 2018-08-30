@@ -4,7 +4,6 @@ namespace Deiucanta\Smart;
 
 use Illuminate\Validation\Rule;
 
-
 trait FieldRules
 {
     public function accepted()
