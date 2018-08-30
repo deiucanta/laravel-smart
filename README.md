@@ -202,7 +202,7 @@ Here are some custom types just as an example of what can be done.
 | `different($field)` | - | - | `different:$field` |
 | `digits($value)` | - | - | `digits:$value` |
 | `digitsBetween($min, $max)` | - | - | `digits_between:$min,$max` |
-| `exists($table, $column, $where)` | - | - | `Rule::exists(...)` |
+| `exists($table [, $column [, $where_closure ]])` | - | - | `Rule::exists(...)` |
 | `filled()` | - | - | `filled` |
 | `gt($field)` | - | - | `gt:$field` |
 | `gte($field)` | - | - | `gte:$field` |

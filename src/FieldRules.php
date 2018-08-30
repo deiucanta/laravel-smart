@@ -2,6 +2,9 @@
 
 namespace Deiucanta\Smart;
 
+use Illuminate\Validation\Rule;
+
+
 trait FieldRules
 {
     public function accepted()
@@ -157,7 +160,7 @@ trait FieldRules
 
     public function in($values)
     {
-        return Rule::in($values);
+        return $this->rule(Rule::in($values));
     }
 
     public function inArray($field)
@@ -216,7 +219,7 @@ trait FieldRules
 
     public function notIn($values)
     {
-        return Rule::notIn($values);
+        return $this->rule(Rule::notIn($values));
     }
 
     public function notRegex($pattern)
@@ -258,22 +261,22 @@ trait FieldRules
 
     public function requiredWith($fields)
     {
-        return $this->rule('required_with:'.implode(',', $fields));
+        return $this->rule('required_with:' . implode(',', $fields));
     }
 
     public function requiredWithAll($fields)
     {
-        return $this->rule('required_with_all:'.implode(',', $fields));
+        return $this->rule('required_with_all:' . implode(',', $fields));
     }
 
     public function requiredWithout($fields)
     {
-        return $this->rule('required_without:'.implode(',', $fields));
+        return $this->rule('required_without:' . implode(',', $fields));
     }
 
     public function requiredWithoutAll($fields)
     {
-        return $this->rule('required_without_all:'.implode(',', $fields));
+        return $this->rule('required_without_all:' . implode(',', $fields));
     }
 
     public function same($field)
