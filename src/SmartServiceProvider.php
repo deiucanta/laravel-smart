@@ -14,10 +14,6 @@ class SmartServiceProvider extends ServiceProvider
                 MigrationCommand::class,
             ]);
         }
-
-        $this->publishes([
-            __DIR__.'/config/smart.php' => config_path('smart.php'),
-        ]);
     }
 
     public function register()
