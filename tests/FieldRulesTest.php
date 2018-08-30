@@ -17,7 +17,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'accepted_field');;
+        $field = collect($model->fields())->firstWhere('name', 'accepted_field');
         $this->assertEquals($field->rules, ['accepted']);
     }
 
@@ -26,7 +26,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'activeUrl_field');;
+        $field = collect($model->fields())->firstWhere('name', 'activeUrl_field');
         $this->assertEquals($field->rules, ['active_url']);
     }
 
@@ -35,7 +35,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'afterOrEqual_field');;
+        $field = collect($model->fields())->firstWhere('name', 'afterOrEqual_field');
         $this->assertEquals($field->rules, ['after_or_equal:2018-12-31']);
     }
 
@@ -44,7 +44,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'alpha_field');;
+        $field = collect($model->fields())->firstWhere('name', 'alpha_field');
         $this->assertEquals($field->rules, ['alpha']);
     }
 
@@ -53,7 +53,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'alphaDash_field');;
+        $field = collect($model->fields())->firstWhere('name', 'alphaDash_field');
         $this->assertEquals($field->rules, ['alpha_dash']);
     }
 
@@ -62,7 +62,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'alphaNum_field');;
+        $field = collect($model->fields())->firstWhere('name', 'alphaNum_field');
         $this->assertEquals($field->rules, ['alpha_num']);
     }
 
@@ -71,7 +71,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'array_field');;
+        $field = collect($model->fields())->firstWhere('name', 'array_field');
         $this->assertEquals($field->rules, ['array']);
     }
 
@@ -80,7 +80,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'bail_field');;
+        $field = collect($model->fields())->firstWhere('name', 'bail_field');
         $this->assertEquals($field->rules, ['bail']);
     }
 
@@ -89,7 +89,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'before_field');;
+        $field = collect($model->fields())->firstWhere('name', 'before_field');
         $this->assertEquals($field->rules, ['before:2018-12-31']);
     }
 
@@ -98,7 +98,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'beforeOrEqual_field');;
+        $field = collect($model->fields())->firstWhere('name', 'beforeOrEqual_field');
         $this->assertEquals($field->rules, ['before_or_equal:2018-12-31']);
     }
 
@@ -107,7 +107,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'between_field');;
+        $field = collect($model->fields())->firstWhere('name', 'between_field');
         $this->assertEquals($field->rules, ['between:1,20']);
     }
 
@@ -116,7 +116,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'confirmed_field');;
+        $field = collect($model->fields())->firstWhere('name', 'confirmed_field');
         $this->assertEquals($field->rules, ['confirmed']);
     }
 
@@ -125,7 +125,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'dateEquals_field');;
+        $field = collect($model->fields())->firstWhere('name', 'dateEquals_field');
         $this->assertEquals($field->rules, ['date_equals:2018-12-31']);
     }
 
@@ -134,7 +134,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'dateFormat_field');;
+        $field = collect($model->fields())->firstWhere('name', 'dateFormat_field');
         $this->assertEquals($field->rules, ['date_format:Y-m-d']);
     }
 
@@ -143,7 +143,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'different_field');;
+        $field = collect($model->fields())->firstWhere('name', 'different_field');
         $this->assertEquals($field->rules, ['different:somefield']);
     }
 
@@ -152,7 +152,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'digits_field');;
+        $field = collect($model->fields())->firstWhere('name', 'digits_field');
         $this->assertEquals($field->rules, ['digits:3']);
     }
 
@@ -161,7 +161,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'digitsBetween_field');;
+        $field = collect($model->fields())->firstWhere('name', 'digitsBetween_field');
         $this->assertEquals($field->rules, ['digits_between:5,9']);
     }
 
@@ -171,7 +171,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'exists_field');;
+        $field = collect($model->fields())->firstWhere('name', 'exists_field');
 
         $rule = $field->rules[0]->__toString();
 
@@ -208,7 +208,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'filled_field');;
+        $field = collect($model->fields())->firstWhere('name', 'filled_field');
         $this->assertEquals($field->rules, ['filled']);
     }
 
@@ -217,7 +217,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'gt_field');;
+        $field = collect($model->fields())->firstWhere('name', 'gt_field');
         $this->assertEquals($field->rules, ['gt:5']);
     }
 
@@ -226,7 +226,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'gte_field');;
+        $field = collect($model->fields())->firstWhere('name', 'gte_field');
         $this->assertEquals($field->rules, ['gte:6']);
     }
 
@@ -257,7 +257,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'ip_field');;
+        $field = collect($model->fields())->firstWhere('name', 'ip_field');
         $this->assertEquals($field->rules, ['ip']);
     }
 
@@ -266,7 +266,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'ipv4_field');;
+        $field = collect($model->fields())->firstWhere('name', 'ipv4_field');
         $this->assertEquals($field->rules, ['ipv4']);
     }
 
@@ -275,7 +275,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'ipv6_field');;
+        $field = collect($model->fields())->firstWhere('name', 'ipv6_field');
         $this->assertEquals($field->rules, ['ipv6']);
     }
 
@@ -284,7 +284,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'lt_field');;
+        $field = collect($model->fields())->firstWhere('name', 'lt_field');
         $this->assertEquals($field->rules, ['lt:10']);
     }
 
@@ -293,7 +293,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'lte_field');;
+        $field = collect($model->fields())->firstWhere('name', 'lte_field');
         $this->assertEquals($field->rules, ['lte:11']);
     }
 
@@ -302,7 +302,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'max_field');;
+        $field = collect($model->fields())->firstWhere('name', 'max_field');
         $this->assertEquals($field->rules, ['max:12']);
     }
 
@@ -311,7 +311,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'min_field');;
+        $field = collect($model->fields())->firstWhere('name', 'min_field');
         $this->assertEquals($field->rules, ['min:13']);
     }
 
@@ -332,7 +332,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'notRegex_field');;
+        $field = collect($model->fields())->firstWhere('name', 'notRegex_field');
         $this->assertEquals($field->rules, ['not_regex:/w+/']);
     }
 
@@ -341,7 +341,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'numeric_field');;
+        $field = collect($model->fields())->firstWhere('name', 'numeric_field');
         $this->assertEquals($field->rules, ['numeric']);
     }
 
@@ -350,7 +350,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'present_field');;
+        $field = collect($model->fields())->firstWhere('name', 'present_field');
         $this->assertEquals($field->rules, ['present']);
     }
 
@@ -359,7 +359,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'regex_field');;
+        $field = collect($model->fields())->firstWhere('name', 'regex_field');
         $this->assertEquals($field->rules, ['regex:/{abc}/']);
     }
 
@@ -368,7 +368,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'required_field');;
+        $field = collect($model->fields())->firstWhere('name', 'required_field');
         $this->assertEquals($field->rules, ['required']);
     }
 
@@ -377,7 +377,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'requiredIf_field');;
+        $field = collect($model->fields())->firstWhere('name', 'requiredIf_field');
         $this->assertEquals($field->rules, ['required_if:status,ACTIVE']);
     }
 
@@ -386,7 +386,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'requiredUnless_field');;
+        $field = collect($model->fields())->firstWhere('name', 'requiredUnless_field');
         $this->assertEquals($field->rules, ['required_unless:status,ARCHIVED']);
     }
 
@@ -395,7 +395,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'requiredWith_field');;
+        $field = collect($model->fields())->firstWhere('name', 'requiredWith_field');
         $this->assertEquals($field->rules, ['required_with:a,b,c,d']);
     }
 
@@ -404,7 +404,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'requiredWithAll_field');;
+        $field = collect($model->fields())->firstWhere('name', 'requiredWithAll_field');
         $this->assertEquals($field->rules, ['required_with_all:e,f,g,h']);
     }
 
@@ -413,7 +413,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'requiredWithout_field');;
+        $field = collect($model->fields())->firstWhere('name', 'requiredWithout_field');
         $this->assertEquals($field->rules, ['required_without:w,x,y,z']);
     }
 
@@ -422,7 +422,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'requiredWithoutAll_field');;
+        $field = collect($model->fields())->firstWhere('name', 'requiredWithoutAll_field');
         $this->assertEquals($field->rules, ['required_without_all:l,m,n,o']);
     }
 
@@ -431,7 +431,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'same_field');;
+        $field = collect($model->fields())->firstWhere('name', 'same_field');
         $this->assertEquals($field->rules, ['same:password_confirm']);
     }
 
@@ -440,7 +440,7 @@ class FieldRulesTest extends TestCase
     {
         $model = new OhRule();
 
-        $field = collect($model->fields())->firstWhere('name', 'timezone_field');;
+        $field = collect($model->fields())->firstWhere('name', 'timezone_field');
         $this->assertEquals($field->rules, ['timezone']);
     }
 }

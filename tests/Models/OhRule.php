@@ -58,7 +58,7 @@ class OhRule extends Model
             Field::make('requiredWithout_field')->requiredWithout(['w', 'x', 'y', 'z']),
             Field::make('requiredWithoutAll_field')->requiredWithoutAll(['l', 'm', 'n', 'o']),
             Field::make('same_field')->same('password_confirm'),
-            Field::make('timezone_field')->timezone()
+            Field::make('timezone_field')->timezone(),
         ];
     }
 }
