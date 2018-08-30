@@ -16,6 +16,7 @@ class ModelCommand extends Command
 
         if (File::exists(app_path($name.'.php'))) {
             $this->error('This model already exists.');
+
             return false;
         }
 

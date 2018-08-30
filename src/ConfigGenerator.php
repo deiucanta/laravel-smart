@@ -13,7 +13,7 @@ class ConfigGenerator extends Generator
             [
                 "'models' => [",
                     $this->printModelNames($models),
-                '],'
+                '],',
             ],
             '];',
         ]);
