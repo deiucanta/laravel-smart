@@ -122,6 +122,17 @@ class FieldTypesTest extends TestCase
     }
 
     /** @test */
+    public function setup_email()
+    {
+        $model = new BigBang();
+        $field = collect($model->fields())->firstWhere('name', 'email_field');
+
+        $this->assertEquals($field->type, 'string');
+        $this->assertEquals($field->cast, null);
+        $this->assertEquals($field->rules, ['email']);
+    }
+
+    /** @test */
     public function setup_enum()
     {
         $model = new BigBang();
@@ -320,6 +331,17 @@ class FieldTypesTest extends TestCase
     }
 
     /** @test */
+    public function setup_nullable()
+    {
+        $model = new BigBang();
+        $field = collect($model->fields())->firstWhere('name', 'nullable_field');
+
+        $this->assertEquals($field->type, null);
+        $this->assertEquals($field->cast, null);
+        $this->assertEquals($field->rules, ['nullable']);
+    }
+
+    /** @test */
     public function setup_point()
     {
         $model = new BigBang();
@@ -474,6 +496,20 @@ class FieldTypesTest extends TestCase
     }
 
     /** @test */
+    public function setup_unique()
+    {
+        $model = new BigBang();
+        $model->id = 1;
+        $field = collect($model->fields())->firstWhere('name', 'unique_field');
+
+        $rule = $field->getValidationRules($model)[0]->__toString();
+
+        $this->assertEquals($field->type, null);
+        $this->assertEquals($field->cast, null);
+        $this->assertEquals($rule, 'unique:big_bangs,unique_field,"1",id');
+    }
+
+    /** @test */
     public function setup_unsignedBigInteger()
     {
         $model = new BigBang();
@@ -537,6 +573,28 @@ class FieldTypesTest extends TestCase
         $this->assertEquals($field->type, 'unsignedTinyInteger');
         $this->assertEquals($field->cast, 'integer');
         $this->assertEquals($field->rules, ['numeric']);
+    }
+
+    /** @test */
+    public function setup_slug()
+    {
+        $model = new BigBang();
+        $field = collect($model->fields())->firstWhere('name', 'slug_field');
+
+        $this->assertEquals($field->type, 'string');
+        $this->assertEquals($field->cast, null);
+        $this->assertEquals($field->rules, ['regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/']);
+    }
+
+    /** @test */
+    public function setup_url()
+    {
+        $model = new BigBang();
+        $field = collect($model->fields())->firstWhere('name', 'url_field');
+
+        $this->assertEquals($field->type, 'string');
+        $this->assertEquals($field->cast, null);
+        $this->assertEquals($field->rules, ['url']);
     }
 
     /** @test */
