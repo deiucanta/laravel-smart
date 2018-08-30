@@ -105,7 +105,7 @@ These are the primitives with which you should be able to create any kind of fie
 | `guarded()` | Make the field guarded |
 | `fillable()` | Make the field fillable |
 | `index()` | Add simple index on this field in migration |
-| `unique($where)` | Add a unique index in migration and a smart validation rule that ignores the current model id |
+| `unique($where_closure = null)` | Add a unique index in migration and a smart validation rule that ignores the current model id |
 | `primary()` | Add a primary on this field in migration |
 | `default($default)` | Sets the default value in migration and sets the model attribute when you instantiate the model |
 | `nullable()` | Make the field nullable in migration and also adds the `nullable` validation rule |
@@ -198,7 +198,7 @@ Here are some custom types just as an example of what can be done.
 | `different($field)` | - | - | `different:$field` |
 | `digits($value)` | - | - | `digits:$value` |
 | `digitsBetween($min, $max)` | - | - | `digits_between:$min,$max` |
-| `exists($table, $column, $where)` | - | - | `Rule::exists(...)` |
+| `exists($table [, $column [, $where_closure ]])` | - | - | `Rule::exists(...)` |
 | `filled()` | - | - | `filled` |
 | `gt($field)` | - | - | `gt:$field` |
 | `gte($field)` | - | - | `gte:$field` |
