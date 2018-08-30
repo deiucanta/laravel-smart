@@ -69,6 +69,8 @@ php artisan smart:model Product
 
 Include the model in the config file (`config/smart.php`)
 
+> Note: this is now done automatically when you create the model.
+
 ```php
 <?php
 
