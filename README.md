@@ -59,12 +59,6 @@ To install the package, just run
 composer require deiucanta/smart
 ```
 
-Next, you should publish the config file to `config/smart.php` using
-
-```
-php artisan vendor:publish --provider="Deiucanta\Smart\SmartServiceProvider"
-```
-
 ## Usage
 
 Create a Smart model
