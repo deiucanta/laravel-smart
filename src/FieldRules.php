@@ -260,22 +260,22 @@ trait FieldRules
 
     public function requiredWith($fields)
     {
-        return $this->rule('required_with:' . implode(',', $fields));
+        return $this->rule('required_with:'.implode(',', $fields));
     }
 
     public function requiredWithAll($fields)
     {
-        return $this->rule('required_with_all:' . implode(',', $fields));
+        return $this->rule('required_with_all:'.implode(',', $fields));
     }
 
     public function requiredWithout($fields)
     {
-        return $this->rule('required_without:' . implode(',', $fields));
+        return $this->rule('required_without:'.implode(',', $fields));
     }
 
     public function requiredWithoutAll($fields)
     {
-        return $this->rule('required_without_all:' . implode(',', $fields));
+        return $this->rule('required_without_all:'.implode(',', $fields));
     }
 
     public function same($field)

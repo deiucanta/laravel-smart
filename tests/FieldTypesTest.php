@@ -4,7 +4,6 @@ namespace Deiucanta\Smart\Tests;
 
 use Deiucanta\Smart\Tests\Models\BigBang;
 
-
 class FieldTypesTest extends TestCase
 {
     protected function setUp()
