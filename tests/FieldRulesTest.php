@@ -2,8 +2,8 @@
 
 namespace Deiucanta\Smart\Tests;
 
-use Deiucanta\Smart\Tests\Models\OhRule;
 use Deiucanta\Smart\Field;
+use Deiucanta\Smart\Tests\Models\OhRule;
 
 class FieldRulesTest extends TestCase
 {
