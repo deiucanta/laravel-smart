@@ -40,11 +40,11 @@ class Model extends Eloquent
     {
         $fields = $this->fields();
 
-        if (collect($fields)->unique('name')->count() != collect($fields)->count()) {
-            throw new \Exception('Field names must be unique.');
-        }
-
         foreach ($fields as $field) {
+            if (isset($this->smartFields[$field->name])) {
+                throw new \Exception("Field names must be unique. Duplicity on '{$field->name}'.");
+            }
+
             $this->smartFields[$field->name] = $field;
 
             if ($field->fillable === true) {
@@ -124,9 +124,9 @@ class Model extends Eloquent
     public function dump()
     {
         return [
-            'casts'     => $this->casts,
+            'casts' => $this->casts,
             'validator' => $this->getValidatorData(),
-            'fields'    => $this->smartFields,
+            'fields' => $this->smartFields,
         ];
     }
 }
