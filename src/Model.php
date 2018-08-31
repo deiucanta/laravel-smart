@@ -40,6 +40,10 @@ class Model extends Eloquent
     {
         $fields = $this->fields();
 
+        if (collect($fields)->unique('name')->count() <> collect($fields)->count()) {
+            throw new \Exception('Field names must be unique.');
+        }
+
         foreach ($fields as $field) {
             $this->smartFields[$field->name] = $field;
 
@@ -120,9 +124,9 @@ class Model extends Eloquent
     public function dump()
     {
         return [
-            'casts'     => $this->casts,
+            'casts' => $this->casts,
             'validator' => $this->getValidatorData(),
-            'fields'    => $this->smartFields,
+            'fields' => $this->smartFields,
         ];
     }
 }
