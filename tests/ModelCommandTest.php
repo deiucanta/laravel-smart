@@ -6,7 +6,7 @@ use Deiucanta\Smart\ModelGenerator;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Artisan;
 
-class ModelGeneratorTest extends TestCase
+class ModelCommandTest extends TestCase
 {
     protected function setUp()
     {
