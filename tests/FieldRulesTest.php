@@ -3,6 +3,7 @@
 namespace Deiucanta\Smart\Tests;
 
 use Deiucanta\Smart\Tests\Models\OhRule;
+use Deiucanta\Smart\Field;
 
 class FieldRulesTest extends TestCase
 {
@@ -165,6 +166,22 @@ class FieldRulesTest extends TestCase
     }
 
     /** @test */
+    public function it_does_not_support_dimensions()
+    {
+        $this->expectException(\Exception::class);
+
+        Field::make('dimensions_field')->dimensions();
+    }
+
+    /** @test */
+    public function it_does_not_support_distinct()
+    {
+        $this->expectException(\Exception::class);
+
+        Field::make('distinct_field')->distinct();
+    }
+
+    /** @test */
     public function setup_exists()
     {
         $model = new OhRule();
@@ -202,6 +219,14 @@ class FieldRulesTest extends TestCase
     }
 
     /** @test */
+    public function setup_file()
+    {
+        $this->expectException(\Exception::class);
+
+        Field::make('file_field')->file();
+    }
+
+    /** @test */
     public function setup_filled()
     {
         $model = new OhRule();
@@ -226,6 +251,14 @@ class FieldRulesTest extends TestCase
 
         $field = collect($model->fields())->firstWhere('name', 'gte_field');
         $this->assertEquals($field->rules, ['gte:6']);
+    }
+
+    /** @test */
+    public function setup_image()
+    {
+        $this->expectException(\Exception::class);
+
+        Field::make('image_field')->image();
     }
 
     /** @test */
@@ -302,6 +335,22 @@ class FieldRulesTest extends TestCase
 
         $field = collect($model->fields())->firstWhere('name', 'max_field');
         $this->assertEquals($field->rules, ['max:12']);
+    }
+
+    /** @test */
+    public function setup_mimeTypes()
+    {
+        $this->expectException(\Exception::class);
+
+        Field::make('mimeTypes_field')->mimeTypes();
+    }
+
+    /** @test */
+    public function setup_mimes()
+    {
+        $this->expectException(\Exception::class);
+
+        Field::make('mimes_field')->mimes();
     }
 
     /** @test */
