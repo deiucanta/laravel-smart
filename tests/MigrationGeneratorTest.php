@@ -3,7 +3,6 @@
 namespace Deiucanta\Smart\Tests;
 
 use Deiucanta\Smart\MigrationGenerator;
-use Illuminate\Validation\ValidationException;
 
 class MigrationGeneratorTest extends TestCase
 {
@@ -26,11 +25,11 @@ class MigrationGeneratorTest extends TestCase
                             'type' => 'increments',
                         ],
                         'created_at' => [
-                            'type' => 'timestamp',
+                            'type'     => 'timestamp',
                             'nullable' => true,
                         ],
                         'updated_at' => [
-                            'type' => 'timestamp',
+                            'type'     => 'timestamp',
                             'nullable' => true,
                         ],
                     ],
@@ -58,14 +57,14 @@ class MigrationGeneratorTest extends TestCase
                 'Deiucanta\Smart\Tests\Models\Product' => [
                     'updated' => [
                         'name' => [
-                            'type' => 'string',
+                            'type'     => 'string',
                             'nullable' => true,
-                            'default' => 'John Doe',
+                            'default'  => 'John Doe',
                         ],
                         'price' => [
-                            'type' => 'decimal',
+                            'type'     => 'decimal',
                             'typeArgs' => [5, 2],
-                            'index' => false,
+                            'index'    => false,
                         ],
                     ],
                 ],

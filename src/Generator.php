@@ -11,7 +11,7 @@ class Generator
         foreach ($lines as $item) {
             if (is_array($item)) {
                 $output .= $this->joinTree($item, $level + 1);
-            } else if ($item !== '') {
+            } elseif ($item !== '') {
                 $output .= str_repeat(' ', $level * $indent).$item."\n";
             } else {
                 $output .= "\n";
