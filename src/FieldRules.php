@@ -102,12 +102,12 @@ trait FieldRules
 
     public function dimensions()
     {
-        throw new Exception('`dimensions` is not supported');
+        throw new \Exception('`dimensions` is not supported');
     }
 
     public function distinct()
     {
-        throw new Exception('`distinct` is not supported');
+        throw new \Exception('`distinct` is not supported');
     }
 
     // email is in FieldTypes
@@ -134,7 +134,7 @@ trait FieldRules
 
     public function file()
     {
-        throw new Exception('`file` is not supported');
+        throw new \Exception('`file` is not supported');
     }
 
     public function filled()
@@ -154,7 +154,7 @@ trait FieldRules
 
     public function image()
     {
-        throw new Exception('`image` is not supported');
+        throw new \Exception('`image` is not supported');
     }
 
     public function in($values)
@@ -203,12 +203,12 @@ trait FieldRules
 
     public function mimeTypes()
     {
-        throw new Exception('`mimetypes` is not supported');
+        throw new \Exception('`mimetypes` is not supported');
     }
 
     public function mimes()
     {
-        throw new Exception('`mimes` is not supported');
+        throw new \Exception('`mimes` is not supported');
     }
 
     public function min($value)
@@ -260,22 +260,22 @@ trait FieldRules
 
     public function requiredWith($fields)
     {
-        return $this->rule('required_with:'.implode(',', $fields));
+        return $this->rule('required_with:' . implode(',', $fields));
     }
 
     public function requiredWithAll($fields)
     {
-        return $this->rule('required_with_all:'.implode(',', $fields));
+        return $this->rule('required_with_all:' . implode(',', $fields));
     }
 
     public function requiredWithout($fields)
     {
-        return $this->rule('required_without:'.implode(',', $fields));
+        return $this->rule('required_without:' . implode(',', $fields));
     }
 
     public function requiredWithoutAll($fields)
     {
-        return $this->rule('required_without_all:'.implode(',', $fields));
+        return $this->rule('required_without_all:' . implode(',', $fields));
     }
 
     public function same($field)
