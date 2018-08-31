@@ -3,6 +3,7 @@
 namespace Deiucanta\Smart\Tests;
 
 use Deiucanta\Smart\Tests\Models\BigBang;
+use Deiucanta\Smart\Field;
 
 class FieldTypesTest extends TestCase
 {
@@ -298,6 +299,13 @@ class FieldTypesTest extends TestCase
     }
 
     /** @test */
+    public function it_does_not_support_morphs()
+    {
+        $this->expectException(\Exception::class);
+        Field::make('morphs_field')->morphs();
+    }
+
+    /** @test */
     public function setup_multiLineString()
     {
         $model = new BigBang();
@@ -471,6 +479,20 @@ class FieldTypesTest extends TestCase
         $this->assertEquals($field->type, 'timestampTz');
         $this->assertEquals($field->cast, 'datetime');
         $this->assertEquals($field->rules, []);
+    }
+
+    /** @test */
+    public function it_does_not_support_timestampsTz()
+    {
+        $this->expectException(\Exception::class);
+        Field::make('timestampsTz_field')->timestampsTz();
+    }
+
+    /** @test */
+    public function it_does_not_support_timestamps()
+    {
+        $this->expectException(\Exception::class);
+        Field::make('timestamps_field')->timestamps();
     }
 
     /** @test */
