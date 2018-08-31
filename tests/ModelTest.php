@@ -2,9 +2,9 @@
 
 namespace Deiucanta\Smart\Tests;
 
+use Deiucanta\Smart\Tests\Models\Duplicity;
 use Deiucanta\Smart\Tests\Models\Product;
 use Illuminate\Validation\ValidationException;
-use Deiucanta\Smart\Tests\Models\Duplicity;
 
 class ModelTest extends TestCase
 {
