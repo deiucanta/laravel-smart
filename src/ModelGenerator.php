@@ -29,7 +29,6 @@ class ModelGenerator extends Generator
                 '}',
             ],
             '}',
-            '',
         ]);
     }
 }

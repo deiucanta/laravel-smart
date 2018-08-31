@@ -1,0 +1,20 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class Testing extends Migration
+{
+    public function up()
+    {
+        Schema::table('products', function (Blueprint $table) {
+            $table->string("name")->default("John Doe")->nullable(true)->change();
+            $table->decimal("price", 5, 2)->index(false)->change();
+        });
+    }
+
+    public function down()
+    {
+    }
+}
