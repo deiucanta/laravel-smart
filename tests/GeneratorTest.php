@@ -3,7 +3,6 @@
 namespace Deiucanta\Smart\Tests;
 
 use Deiucanta\Smart\Generator;
-use Illuminate\Validation\ValidationException;
 
 class GeneratorTest extends TestCase
 {
