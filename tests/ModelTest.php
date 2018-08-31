@@ -4,6 +4,7 @@ namespace Deiucanta\Smart\Tests;
 
 use Deiucanta\Smart\Tests\Models\Product;
 use Illuminate\Validation\ValidationException;
+use Deiucanta\Smart\Tests\Models\Duplicity;
 
 class ModelTest extends TestCase
 {
@@ -53,5 +54,13 @@ class ModelTest extends TestCase
         } catch (ValidationException $e) {
             $this->assertArraySubset(array_keys($e->errors()), ['sku', 'name', 'price']);
         }
+    }
+
+    /** @test */
+    public function field_names_must_be_unique()
+    {
+        $this->expectException(\Exception::class);
+
+        $model = new Duplicity();
     }
 }
