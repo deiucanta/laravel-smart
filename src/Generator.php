@@ -4,22 +4,24 @@ namespace Deiucanta\Smart;
 
 class Generator
 {
-    protected function joinTree($lines, $level = 0, $indent = 4)
+    public function joinTree($lines, $level = 0, $indent = 4)
     {
         $output = '';
 
         foreach ($lines as $item) {
             if (is_array($item)) {
                 $output .= $this->joinTree($item, $level + 1);
-            } else {
+            } elseif ($item !== '') {
                 $output .= str_repeat(' ', $level * $indent).$item."\n";
+            } else {
+                $output .= "\n";
             }
         }
 
         return $output;
     }
 
-    protected function joinSections($sections)
+    public function joinSections($sections)
     {
         $output = [];
 

@@ -20,7 +20,6 @@ class MigrationGenerator extends Generator
                 $this->printMethod('down', $down),
             ]),
             '}',
-            '',
         ]);
     }
 
@@ -129,7 +128,8 @@ class MigrationGenerator extends Generator
 
     protected function printField($name, $data)
     {
-        $output = '$table->'.$this->printFieldType($data['type'], $name, $data['typeArgs']);
+        $args = isset($data['typeArgs']) ? $data['typeArgs'] : [];
+        $output = '$table->'.$this->printFieldType($data['type'], $name, $args);
 
         if (isset($data['index'])) {
             $output .= '->index('.json_encode($data['index']).')';
@@ -153,7 +153,7 @@ class MigrationGenerator extends Generator
         return $output;
     }
 
-    protected function printFieldType($type, $name, $args = [])
+    protected function printFieldType($type, $name, $args)
     {
         array_unshift($args, $name);
 
