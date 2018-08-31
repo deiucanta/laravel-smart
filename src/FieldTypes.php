@@ -56,7 +56,7 @@ trait FieldTypes
 
     public function enum($values)
     {
-        return $this->type('enum', $values)->rule('in:'.implode(',', $values));
+        return $this->type('enum', $values)->rule('in:' . implode(',', $values));
     }
 
     public function float($total, $decimal)
@@ -131,7 +131,7 @@ trait FieldTypes
 
     public function morphs()
     {
-        throw new Exception('`morphs` is not supported');
+        throw new \Exception('`morphs` is not supported');
     }
 
     public function multiLineString()
@@ -211,12 +211,12 @@ trait FieldTypes
 
     public function timestamps()
     {
-        throw new Exception('`timestamps` is not supported');
+        throw new \Exception('`timestamps` is not supported');
     }
 
     public function timestampsTz()
     {
-        throw new Exception('`timestampsTz` is not supported');
+        throw new \Exception('`timestampsTz` is not supported');
     }
 
     public function tinyIncrements()
