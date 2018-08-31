@@ -2,8 +2,8 @@
 
 namespace Deiucanta\Smart\Tests;
 
-use Deiucanta\Smart\Tests\Models\BigBang;
 use Deiucanta\Smart\Field;
+use Deiucanta\Smart\Tests\Models\BigBang;
 
 class FieldTypesTest extends TestCase
 {
