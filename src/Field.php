@@ -19,6 +19,7 @@ class Field
 
     public $guarded = false;
     public $fillable = false;
+    public $label = null;
 
     public $index = null;
     public $unique = null;
@@ -73,6 +74,13 @@ class Field
     public function fillable()
     {
         $this->fillable = true;
+
+        return $this;
+    }
+
+    public function label(string $value)
+    {
+        $this->label = $value;
 
         return $this;
     }

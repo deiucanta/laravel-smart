@@ -11,7 +11,7 @@ class Product extends Model
     {
         return [
             Field::make('id')->increments(),
-            Field::make('sku')->string()->required()->unique()->guarded(),
+            Field::make('sku')->string()->required()->unique()->guarded()->label('Sku Number'),
             Field::make('name')->string()->required()->guarded(),
             Field::make('price')->decimal(6, 2)->fillable()->required()->min(0),
             Field::make('description')->text()->fillable()->nullable(),

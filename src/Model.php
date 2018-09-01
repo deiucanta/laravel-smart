@@ -79,7 +79,7 @@ class Model extends Eloquent
 
     protected function getValidatorData($skip = [])
     {
-        $values = $rules = [];
+        $values = $rules = $labels = [];
 
         foreach ($this->smartFields as $key => $field) {
             if (in_array($key, $skip)) {
@@ -97,12 +97,15 @@ class Model extends Eloquent
             }
 
             $rules[$key] = $fieldRules;
+
             $values[$key] = isset($this->rawAttributes[$key])
                 ? $this->rawAttributes[$key]
                 : $this->getAttribute($key);
+
+            $labels[$key] = isset($field->label) ? $field->label : $key;
         }
 
-        return compact('values', 'rules');
+        return compact('values', 'rules', 'labels');
     }
 
     public function validate($skip = [])
@@ -110,6 +113,7 @@ class Model extends Eloquent
         if ($this->validator === null) {
             $data = $this->getValidatorData($skip);
             $this->validator = Validator::make($data['values'], $data['rules']);
+            $this->validator->setAttributeNames($data['labels']);
         }
 
         return $this->validator;
@@ -124,9 +128,9 @@ class Model extends Eloquent
     public function dump()
     {
         return [
-            'casts'     => $this->casts,
+            'casts' => $this->casts,
             'validator' => $this->getValidatorData(),
-            'fields'    => $this->smartFields,
+            'fields' => $this->smartFields,
         ];
     }
 }
