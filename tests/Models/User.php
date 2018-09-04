@@ -2,8 +2,8 @@
 
 namespace Deiucanta\Smart\Tests\Models;
 
-use Deiucanta\Smart\Field;
 use Deiucanta\Smart\Authenticable;
+use Deiucanta\Smart\Field;
 
 class User extends Authenticable
 {
