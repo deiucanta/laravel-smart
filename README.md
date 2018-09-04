@@ -40,7 +40,7 @@ class Product extends Model
     {
         return [
             Field::make('id')->increments(),
-            Field::make('sku')->string()->fillable()->required()->unique(),
+            Field::make('sku')->string()->fillable()->required()->unique()->label("Sku Number"),
             Field::make('name')->string()->fillable()->required(),
             Field::make('price')->decimal(6, 2)->fillable()->required()->min(0),
             Field::make('description')->text()->fillable()->nullable(),
@@ -110,6 +110,7 @@ These are the primitives with which you should be able to create any kind of fie
 | `default($default)` | Sets the default value in migration and sets the model attribute when you instantiate the model |
 | `nullable()` | Make the field nullable in migration and also adds the `nullable` validation rule |
 | `unsigned()` | Add the `unsigned` modifier in the migration |
+| `label($value)` | Set the field label for validation errors bag |
 
 ### Type Methods
 
