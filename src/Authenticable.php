@@ -2,7 +2,7 @@
 
 namespace Deiucanta\Smart;
 
-class Model extends \Illuminate\Database\Eloquent\Model
+class Authenticable extends \Illuminate\Foundation\Auth\User
 {
     use SmartModel;
 
