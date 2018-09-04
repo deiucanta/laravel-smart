@@ -14,7 +14,7 @@ class ModelCommand extends Command
     {
         $name = $this->argument('name');
 
-        if (File::exists(app_path($name . '.php'))) {
+        if (File::exists(app_path($name.'.php'))) {
             $this->error('This model already exists.');
 
             return false;
@@ -28,7 +28,7 @@ class ModelCommand extends Command
     {
         $generator = new ModelGenerator();
 
-        File::put(app_path($name . '.php'), $generator->print($name));
+        File::put(app_path($name.'.php'), $generator->print($name));
     }
 
     protected function generateConfig($name)
