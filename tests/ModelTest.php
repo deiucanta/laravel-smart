@@ -3,6 +3,7 @@
 namespace Deiucanta\Smart\Tests;
 
 use Deiucanta\Smart\Tests\Models\Duplicity;
+use Deiucanta\Smart\Tests\Models\FieldCaching;
 use Deiucanta\Smart\Tests\Models\Product;
 use Illuminate\Validation\ValidationException;
 
@@ -62,5 +63,24 @@ class ModelTest extends TestCase
         $this->expectException(\Exception::class);
 
         $model = new Duplicity();
+    }
+
+    /** @test */
+    public function it_caches_field_definitions()
+    {
+        $modelA = new FieldCaching();
+        $modelB = new FieldCaching();
+
+        $this->assertEquals($modelA->getSmartFields(), $modelB->getSmartFields());
+    }
+
+    /** @test */
+    public function it_caches_a_collection_indexed_by_name()
+    {
+        $model = new FieldCaching();
+        $fields = $model->getSmartFields();
+
+        $this->assertInstanceOf(\Illuminate\Support\Collection::class, $fields);
+        $this->assertEquals($fields->keys()->toArray(), ['id']);
     }
 }

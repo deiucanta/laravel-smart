@@ -12,7 +12,7 @@ class MigrationAnalyzer
             $data[$model] = [];
 
             $instance = new $model();
-            $fields = $instance->fields();
+            $fields = $instance->getSmartFields();
 
             foreach ($fields as $field) {
                 $name = $field->name;

@@ -7,7 +7,8 @@ use Illuminate\Validation\ValidationException;
 
 trait SmartModel
 {
-    protected $smartFields = [];
+    protected static $smartFields = [];
+
     protected $rawAttributes = [];
     protected $validator = null;
 
@@ -26,17 +27,30 @@ trait SmartModel
         });
     }
 
-    public function initSmartFields()
+    public function getSmartFields()
     {
-        $fields = $this->fields();
+        if (!isset(static::$smartFields[static::class])) {
+            $fields = collect();
 
-        foreach ($fields as $field) {
-            if (isset($this->smartFields[$field->name])) {
-                throw new \Exception("Field names must be unique. Duplicity on '{$field->name}'.");
+            foreach ($this->fields() as $field) {
+                if ($fields->has($field->name)) {
+                    throw new \Exception("Field names must be unique. Duplicity on '{$field->name}'.");
+                }
+
+                $fields->put($field->name, $field);
             }
 
-            $this->smartFields[$field->name] = $field;
+            static::$smartFields[static::class] = $fields;
+        }
 
+        return static::$smartFields[static::class];
+    }
+
+    protected function initSmartFields()
+    {
+        $fields = $this->getSmartFields();
+
+        foreach ($fields as $field) {
             if ($field->fillable === true) {
                 $this->fillable[] = $field->name;
             }
@@ -60,7 +74,9 @@ trait SmartModel
         // model needs to be validated again
         $this->resetValidator();
 
-        if (isset($this->smartFields[$key]) && $this->smartFields[$key]->validateRawValue) {
+        $fields = $this->getSmartFields();
+
+        if ($fields->has($key) && $fields->get($key)->validateRawValue) {
             $this->rawAttributes[$key] = $value;
         }
 
@@ -70,8 +86,9 @@ trait SmartModel
     protected function getValidatorData($skip = [])
     {
         $values = $rules = $labels = [];
+        $fields = $this->getSmartFields();
 
-        foreach ($this->smartFields as $key => $field) {
+        foreach ($fields as $key => $field) {
             if (in_array($key, $skip)) {
                 continue;
             }
