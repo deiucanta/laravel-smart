@@ -2,9 +2,8 @@
 
 namespace Deiucanta\Smart\Tests;
 
-use Deiucanta\Smart\ModelGenerator;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\File;
 
 class ModelCommandTest extends TestCase
 {
@@ -19,10 +18,10 @@ class ModelCommandTest extends TestCase
     public function it_generates_a_model()
     {
         Artisan::call('smart:model', [
-            'name' => 'Dumb'
+            'name' => 'Dumb',
         ]);
 
-        $expected = file_get_contents(__DIR__ . '/Snapshots/Dumb.php');
+        $expected = file_get_contents(__DIR__.'/Snapshots/Dumb.php');
         $actual = file_get_contents(app_path('Dumb.php'));
 
         $this->assertEquals($expected, $actual);
@@ -35,7 +34,7 @@ class ModelCommandTest extends TestCase
         File::put(app_path('Dumb.php'), 'somecontent');
 
         Artisan::call('smart:model', [
-            'name' => 'Dumb'
+            'name' => 'Dumb',
         ]);
 
         $this->assertEquals("This model already exists.\n", Artisan::output());
