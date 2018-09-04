@@ -15,6 +15,10 @@ trait SmartModel
     protected static function bootSmartModel()
     {
         static::saving(function ($model) {
+            $model->removeUnknownAttributes();
+        });
+
+        static::saving(function ($model) {
             $validator = $model->validate();
 
             if ($validator->fails()) {
@@ -129,5 +133,17 @@ trait SmartModel
     public function resetValidator()
     {
         $this->validator = null;
+    }
+
+    public function removeUnknownAttributes()
+    {
+        $keys = array_keys($this->attributes);
+        $fields = $this->getSmartFields();
+
+        foreach ($keys as $key) {
+            if (!$fields->has($key)) {
+                unset($this->$key);
+            }
+        }
     }
 }
