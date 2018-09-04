@@ -3,6 +3,7 @@
 namespace Deiucanta\Smart;
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 
@@ -24,6 +25,7 @@ class Model extends Eloquent
         parent::boot();
 
         static::saving(function ($model) {
+            $model->removeExtraAttributes();
             $validator = $model->validate();
 
             if ($validator->fails()) {
@@ -122,6 +124,16 @@ class Model extends Eloquent
     public function resetValidator()
     {
         $this->validator = null;
+    }
+
+    public function removeExtraAttributes()
+    {
+        $columns = Schema::getColumnListing($this->getTable());
+        foreach ($this->getAttributes() as $key => $value) {
+            if (!in_array($key, array_values($columns))) {
+                unset($this->$key);
+            }
+        }
     }
 
     // TMP
