@@ -4,7 +4,7 @@ namespace Deiucanta\Smart\Tests;
 
 use Deiucanta\Smart\Tests\Models\User;
 
-class ModelTest extends TestCase
+class AuthenticableTest extends TestCase
 {
     protected function setUp()
     {
