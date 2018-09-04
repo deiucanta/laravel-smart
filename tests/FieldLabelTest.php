@@ -2,7 +2,6 @@
 
 namespace Deiucanta\Smart\Tests;
 
-use Deiucanta\Smart\Field;
 use Deiucanta\Smart\Tests\Models\Product;
 use Illuminate\Validation\ValidationException;
 

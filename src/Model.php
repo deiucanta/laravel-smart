@@ -128,9 +128,9 @@ class Model extends Eloquent
     public function dump()
     {
         return [
-            'casts' => $this->casts,
+            'casts'     => $this->casts,
             'validator' => $this->getValidatorData(),
-            'fields' => $this->smartFields,
+            'fields'    => $this->smartFields,
         ];
     }
 }
