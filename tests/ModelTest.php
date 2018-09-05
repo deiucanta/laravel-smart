@@ -83,4 +83,14 @@ class ModelTest extends TestCase
         $this->assertInstanceOf(\Illuminate\Support\Collection::class, $fields);
         $this->assertEquals($fields->keys()->toArray(), ['id']);
     }
+
+    /** @test */
+    public function it_removes_unknown_attributes()
+    {
+        $model = new Product();
+        $model->junkAttribute = 'x';
+        $model->removeUnknownAttributes();
+
+        $this->assertNull($model->junkAttribute);
+    }
 }
