@@ -17,7 +17,7 @@ class FieldLabelTest extends TestCase
     {
         $model = new Product();
 
-        $field = collect($model->fields())->firstWhere('name', 'sku');
+        $field = $model->getSmartFields()->firstWhere('name', 'sku');
         $this->assertEquals($field->label, 'Sku Number');
     }
 
