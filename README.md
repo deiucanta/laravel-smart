@@ -4,7 +4,7 @@
 
 **Do not use this package in production!**
 
-1. This is a proof of concept. (update: this package is used succesfully in an app that has 25 models)
+1. This is a proof of concept. (update: this package is used successfully in an app that has 25 models)
 2. The code is not unit tested. (update: thanks to @robsontenorio we have basic unit testing)
 3. The API is not stable.
 
@@ -20,7 +20,7 @@ Also, I cannot build this alone! I'm more than happy to receive help from the co
 
 ## Idea
 
-If you define the fields in the model you can get
+If you define the fields in the model, you can get:
 
 - **automatic migrations**
 - automatic validation on `save()`
@@ -51,9 +51,9 @@ class Product extends Model
 }
 ```
 
-## Instalation
+## Installation
 
-To install the package, just run
+To install the package, just run:
 
 ```
 composer require deiucanta/smart
@@ -61,13 +61,13 @@ composer require deiucanta/smart
 
 ## Usage
 
-Create a Smart model
+Create a Smart model:
 
 ```
 php artisan smart:model Product
 ```
 
-Include the model in the config file (`config/smart.php`)
+Include the model in the configuration file (`config/smart.php`):
 
 > Note: this is now done automatically when you create the model.
 
@@ -81,15 +81,15 @@ return [
 ];
 ```
 
-Create a Smart migration
+Create a Smart migration:
 
 ```
 php artisan smart:migration
 ```
 
-You should be able to see a new migration in your migration directory. To apply the migration you just run `php artisan migrate` as usual.
+You should be able to see a new migration in your migration directory. To apply the migration, you just run `php artisan migrate` as usual.
 
-You will find a new file called `smart.json` in the `database` directory of your app. That is where the package stores the current state of the database/models. If you delete that file and run `php artisan smart:migration` it will create a new migration as if the schema was empty.
+You will find a new file called `smart.json` in the `database` directory of your app. That is where the package stores the current state of the database/models. If you delete that file and run `php artisan smart:migration`, it will create a new migration as if the schema was empty.
 
 ## API
 
@@ -104,12 +104,12 @@ These are the primitives with which you should be able to create any kind of fie
 | `rule($rule)` | Add a validation rule (Laravel format) |
 | `guarded()` | Make the field guarded |
 | `fillable()` | Make the field fillable |
-| `index()` | Add simple index on this field in migration |
-| `unique($where_closure = null)` | Add a unique index in migration and a smart validation rule that ignores the current model id |
-| `primary()` | Add a primary on this field in migration |
-| `default($default)` | Sets the default value in migration and sets the model attribute when you instantiate the model |
-| `nullable()` | Make the field nullable in migration and also adds the `nullable` validation rule |
-| `unsigned()` | Add the `unsigned` modifier in the migration |
+| `index()` | Add a simple index on this field in migrations |
+| `unique($where_closure = null)` | Add a unique index in migrations and a smart validation rule that ignores the current model id |
+| `primary()` | Add a primary key on this field in migrations |
+| `default($default)` | Set the default value in migrations and set the model attribute when you instantiate the model |
+| `nullable()` | Make the field nullable in migrations and also add the `nullable` validation rule |
+| `unsigned()` | Add the `unsigned` modifier in migrations |
 | `label($value)` | Set the field label for validation errors bag |
 
 ### Type Methods
