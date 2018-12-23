@@ -41,5 +41,6 @@ class ModelCommand extends Command
         File::put(config_path('smart.php'), $generator->print($models));
 
         $this->call('config:clear');
+        $this->info("Model {$name} generated.");
     }
 }
